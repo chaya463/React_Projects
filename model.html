@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .submitBtn{
+            width: 150px;
+            height: 50px;
+            text-align: center;
+            font-weight: 500;
+            line-height: 50px;
+            border-radius: 10px;
+            color: red;
+            background-color: blue;
+            user-select: none;
+            cursor: pointer;
+        }
+        .submitBtn:active{
+            transform: scale(0.95);
+        }
+        .popupContainer{
+            position: absolute;
+            top:0;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0);
+            width: 500px;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+        }
+        .popupContainer h1{
+            margin-top: -10px;
+            color: red;
+        }
+        .popupContainer span{
+            font-size: 50px;
+        }
+        .popupContainer p{
+            font-size: 14px;
+            text-transform: capitalize;
+        }
+        .okCancelButtons label{
+            font-size: 16px;
+            font-weight: 600;
+            padding: 7px 30px;
+            color: black;
+            background-color: white;
+            border: 1.5px solid black;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .okCancelButtons .cancelBtn{
+            color: white;
+            background-color: red;
+            border: 1.5px solid red;
+        }
+        input:checked ~.popupContainer {
+            top: 50%;
+            transform: translate(-50%,-50%) scale(1);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <label for="popup" class="submitBtn">Submit</label>
+    <input type="checkbox"id="popup">
+    <div class="popupContainer">
+        <h1>Warning</h1>
+        <span>!</span>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Maiores illum molestias magni consequuntur ad voluptate incidunt dignissimos natus iusto est.
+             Magnam facere blanditiis rerum laudantium sed nesciunt nemo aut nobis?</p>
+             <div class="okCancelButtons">
+                <label for="popup" class="okBtn">Ok</label>
+                <label for="popup" class="cancelBtn">Cancel</label>
+             </div>
+    </div>
+
+   </div>
+</body>
+</html>

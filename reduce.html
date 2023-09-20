@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+     let arr=[5,1,3,2,6]
+     let x =arr.reduce((acc,e)=>{
+        //console.log(acc,e)
+        if(e<acc){
+           acc= e
+        }
+        return acc;
+     });
+     console.log(x);
+    // let max=0,min=0
+    //   for (i in arr)
+    //   {
+    //     if (max<arr[i]){max=arr[i]}
+    //     if (min>arr[i]){min=arr[i]}
+    //   }
+    //     console.log(`max is = ${max} and minimum value is = ${min}`)
+    </script>
+</body>
+</html>

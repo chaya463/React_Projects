@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand">Navbar</a>
+                        <form class="d-flex" >
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <hr>
+        <div class="row m-5 p-10 d-flex- justify-content-center"  >
+            <div class="col-3" p>
+                <div class="card" id="card">
+                    <div class="card-header" >
+                        card head
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">title of the card</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum reprehenderit
+                            animi, repellendus distinctio illo exercitationem veritatis natus aliquam quia perferendis.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-header">
+                        cardhead
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">title of the card</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum reprehenderit
+                            animi, repellendus distinctio illo exercitationem veritatis natus aliquam quia perferendis.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let form=document.getElementById("form")
+        document.getElementById('card')
+        const url = "https://jsonplaceholder.typicode.com/users";
+        let globalarr = []
+        let str=" ";
+
+        async function A() {
+            let response = await fetch(url)
+            let data = await response.json()
+            // console.log(data, 'inside async')
+            globalarr = data
+            // console.log(globalarr, 'global');
+            B(globalarr)
+        }
+        A();
+        function B(globalarr) {
+            
+
+            globalarr.map((e, i) => {
+                //  console.log(e)
+
+               str = str+ `<div>${e.name}</div>`
+               
+                 
+
+            })
+            document.getElementById("form").innerHTML=str;
+        }
+
+        form.addEventListener((e)=>{
+            e.preventDefault()
+            console.log(e.target.Search.value);
+        })
+
+    function C(){
+        let X= globalarr.filter((e,i)=>{
+            // console.log(e.name);
+return e.name.includes(name.value)
+        })
+        
+
+    }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

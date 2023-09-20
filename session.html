@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Storage data</h1>
+    <button onclick="Storage()">Click Here!</button>
+    <script>
+        function Storage()
+        {
+            let x=[{name:'chaya',add:'malur,' ,age:21,phno:9113651260}]
+            console.log(x);
+            sessionStorage.setItem('name', JSON.stringify(x))
+        }
+    </script>
+</body>
+</html>

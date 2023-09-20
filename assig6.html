@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Box</title>
+    <style>
+        body{
+            background-color: aqua;
+        }
+        .div {
+            margin: 20px;
+            margin-left: 10px;
+        
+        
+        }
+
+        form {
+            border-radius: 10px;
+            margin-left: 15%;
+            width: 600px;
+            padding: 50px;
+            background-color: gray;
+        }
+
+
+
+        input[type=text] {
+            margin-left: 10%;
+            width: 300px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+            height: 30px;
+            padding: 0px;
+            border-bottom: 1px solid purple;
+        }
+
+
+        input[type=email] {
+            margin-left: 10%;
+            font-size: 16px;
+            width: 300px;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+            height: 30px;
+            padding: 0px;
+            border-bottom: 1px solid purple;
+        }
+
+        textarea {
+            margin-left: 10%;
+            font-size: 16px;
+            width: 300px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid purple;
+        }
+
+        select {
+            font-size: 16px;
+            width: 150px;
+            box-sizing: border-box;
+            border: 1px solid purple;
+        }
+
+        input[type=button] {
+            background-color: #444dd0;
+            margin-left: 10%;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+           
+            cursor: pointer;
+        }
+
+        .submitbtn {
+            font-size: 16px;
+            background-color: rgb(51, 192, 51);
+            border-radius: 4px;
+            color: white;
+            padding: 14px 30px;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 5px;
+            border: none;
+        }
+
+        .submitbtn:hover {
+            background-color: rgb(30, 176, 30);
+
+        }
+      h2{
+        width: 200px;
+        height: 50px;
+        margin-left: 500px;
+        margin-bottom: 10px;
+      }
+
+
+     
+    </style>
+
+</head>
+
+<body>
+    <h2>Select Box</h2>
+
+    <div>
+
+        <form id="form" style="display: flex; height: 50px;">
+            <div>
+                <select id="select" style="height: 50px;">
+                    <option value="text">Text</option>
+                    <option value="email">Email</option>
+                    <option value="textarea">TextArea</option>
+                    <option value="button">Submit</option>
+                </select>
+
+            </div>
+
+
+            <!-- Here we target this div and  add selected field  -->
+            <div id="inputContainer">
+            </div>
+
+
+            <div>
+                <button class="submitbtn" style="margin-left: 100px;">ADD</button>
+            </div>
+        </form>
+
+
+
+        <!-- For displaying select Field in the web -->
+
+        <div id="displayList" style="display: table-caption; margin-left: 250px">
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        const select = document.getElementById('select');
+        const container = document.getElementById('inputContainer');
+
+        select.addEventListener('change', handleSelectChange);
+
+        function handleSelectChange() {
+            //  To Remove  previously added input field
+            container.innerHTML = '';
+
+            const selectedOption = select.value;
+
+            const inputField = document.createElement('input');     // For Input Tag 
+            const textarea = document.createElement('textarea');    // For Text Area only coz it is not input tag
+
+
+
+            // Here we check if it is input tag or not. If input tag we add in inputFiled. If it is not input tag i.e(textarea)we create new textArea
+
+            if (selectedOption == 'textarea') {
+                container.appendChild(textarea);
+            }
+            else {
+                container.appendChild(inputField)
+            }
+
+
+            //Adding attributes in input field
+
+            if (selectedOption === 'text') {
+                inputField.setAttribute('type', 'text');
+                inputField.placeholder = 'Enter text...';
+            }
+            else if (selectedOption === 'email') {
+                inputField.setAttribute('type', 'email');
+                inputField.placeholder = 'Enter email...';
+            }
+            else if (selectedOption === 'textarea') {
+                inputField.placeholder = 'Enter some text here';
+            }
+            else if (selectedOption === 'button') {
+                inputField.setAttribute('type', 'button');
+                inputField.setAttribute('value', 'SUBMIT');
+            }
+
+
+
+
+
+
+            let form = document.getElementById('form')
+            let displayList = document.getElementById('displayList')
+
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                // console.log(event.target.select.value)
+
+                if (selectedOption == 'textarea') {
+                    displayList.appendChild(textarea);
+                }
+                else {
+                    displayList.appendChild(inputField)
+                }
+
+            })
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

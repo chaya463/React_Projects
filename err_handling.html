@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Error Handling</h1>
+    <script>
+        // if no error means only try block will execute if try block has error means catch block will be execute
+   try{
+    console.log("Start");
+    ffff;                 //err
+    console.log("end");
+   }
+   catch(error){        //error is a optional object to identify the error in which line.
+    console.log(error);
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack);
+   }
+
+
+
+
+   // asynchronous way
+
+   try {
+   
+    setTimeout(()=>{
+        console.log("start");      //it will give error because async will not work for try and catch
+        dffff;
+        console.log("end");
+    })
+   }
+   catch{
+    console.log("err message");
+   }
+// converting async to sync 
+
+
+
+setTimeout(()=>{
+
+})
+
+    </script>
+</body>
+</html>

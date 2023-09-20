@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: aquamarine;
+            font-family: sans-serif;
+        }
+        .form-box{
+            width:500px;
+            background: rgba(0,0,0,0.8);
+            margin: 12% auto;
+            padding: 50px 0;
+            color:#fff;
+            box-shadow: 0 0 20px 2px rgba(0,0, 0, 0.5);
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .input-box{
+            margin: 31px auto;
+            width: 80%;
+            border-bottom: 1px solid #fff;
+            padding-top: 10px;
+            padding-bottom: 5px;
+        }
+        .input-box input {
+            width:80%;
+            border:none;
+            outline:none;
+            background: transparent;
+            color: white;
+        }
+        .fa{
+            margin-right: 10px;
+
+        }
+        .span{
+            position: absolute;
+        }
+        #id1{
+            display: none;
+        }
+        .Login-btn{
+            margin: 40px auto 20px;
+            width: 80%;
+            display: block;
+            outline: none;
+            padding: 10px 0;
+            border: 1px solid #fff;
+            cursor: pointer;
+            background-color: transparent;
+            color: #fff;
+            font-size: 16px;
+        }
+
+
+ </style>
+</head>
+<body>
+    <form class="form-box" id="formid">
+        <h1>Login Here</h1>
+        <div class="input-box">
+            <i class=""></i>
+            <input type="email" placeholder="email" id="id4">
+
+        </div>
+        <div class="input-box">
+            <i class="fa-solid fa-key"></i>
+            <input type="password" placeholder="password" id="id3">
+            <span class="eye" onclick="myFunction()">
+                <i class="fa-sharp fa-solid fa-eye-slash"></i>
+             <i class="fa-sharp fa-solid fa-eye"></i>
+            <!-- <i id="id2" class="fa-eye-slash"></i> -->
+            </span>
+        </div>
+        <button type="button" class="Login-btn" onclick="btn()">Login</button>
+    </form>
+    <script>
+        function myFunction(){
+            let x=document.getElementById("idid3");
+            let y=document.getElementById("id1");
+            let z=document.getElementById("id2");
+            
+            if(x.type=="password"){
+                x.type="text";
+                y.style.display="block";
+                z.style.display="none";
+            }
+            else{
+                x.type="password";
+                y.style.display="none";
+                z.style.display="block";
+            }
+
+            
+            
+        }
+         function btn(){
+            console.log("click")
+         }
+    </script>
+</body>
+</html>

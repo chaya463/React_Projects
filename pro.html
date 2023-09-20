@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hide and show password with Icon using (JS)</title>
+        <link rel="stylesheet" href="../html/fontawesome-free-6.4.0-web/css/all.css">
+    </head>
+    <body>
+  <from>
+  <div class="wrapper">
+    <input type="password" id="passwordInput">
+    <i id="eyeicon" class="fa fa-eye" aria-hidden="true"  
+    onclick="togglePasswordVisibility()"></i>
+    
+  </div>
+  </from>
+  <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("passwordInput");
+            var eyeicon=document.getElementById("eyeicon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeicon.classList.remove("fa-eye");
+                eyeicon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                eyeicon.classList.remove("fa-eye-slash");
+                eyeicon.classList.add("fa-eye");
+            }
+        }
+
+  </script>
+  <style>
+body{
+    background-color:rgba(0, 255, 225, 0.812);
+    padding:0;
+    margin:0;
+  }
+  .wrapper {
+    position:absolute;
+    transform:translate(-50%,-50%);
+    top:50%;
+    left:50%;
+    width:300px;
+
+  }
+  input{
+    box-sizing:border-box;
+    width:100%;
+    font-size:18px;
+    border:none;
+    padding: 10px 10px;
+    border-radius: 3px;
+    font-family:'poppins',sans-serif;
+    color:blue;
+    letter-spacing: 0.5px;
+    box-shadow:0 5px 30px rgba(22,89,233,0.4);
+  }
+  ::placeholder{
+    color:blueviolet;
+    font-weight:400;
+  }
+
+  .fa{
+    font-size: 20px;
+    color:brown;
+
+  }
+  </style>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="id1">This is Html page</h1>
+        <p>This is Html</p>
+    </div>
+    <script>
+        let x=document.createElement('p');
+        x.innerText="This is javascript Code";
+        y=document.querySelector('.container')
+        y.appendChild(x);
+        console.log(x.firstChild);
+        console.log(x.lastChild);
+        console.log(x.firstElementChild);
+        console.log(x.lastElementChild);
+
+        
+    </script>
+</body>
+</html>

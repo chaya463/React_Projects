@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        obj = {
+            fName: "chaya", age: 21, add: "xy",
+            res: function (m1, m2, m3) {
+                console.log(m1+m2+m3);
+                return (m1 + m2 + m3)
+
+            }
+        }
+
+
+
+        function print(a,b,c) {
+            this.res(10,20,30)
+
+             console.log(this.fName)
+            console.log(this.age)
+
+            console.log(a)
+            // console.log(this.res(10, 20, 30));
+        }
+        print.apply(obj,[2,3,5])
+    </script>
+</body>
+
+</html>

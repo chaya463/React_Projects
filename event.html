@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #btn1{
+            background-color:red;
+        }
+        #btn2{
+            background-color: yellow;
+        }
+        #btn3{
+            background-color: green;
+        }
+        #btn4{
+            background-color: orange;
+        } */
+        
+    </style>
+</head>
+<body>
+    <button id="btn1">Red</button>
+    <button id="btn2">yellow</button>
+    <button id="btn3">Green</button>
+    <button id="btn4">Orange</button>
+    <script>
+        let btn1=document.getElementById('btn1');
+        btn1.addEventListener('click',function onClick(event){
+         document.body.style.backgroundColor = 'red';});
+
+         let btn2=document.getElementById('btn2');
+        btn2.addEventListener('click',function onClick(event){
+         document.body.style.backgroundColor = 'yellow';});
+
+         let btn3=document.getElementById('btn3');
+        btn3.addEventListener('click',function onClick(event){
+         document.body.style.backgroundColor = 'green';});
+
+         let btn4=document.getElementById('btn4');
+        btn4.addEventListener('click',function onClick(event){
+         document.body.style.backgroundColor = 'orange';});
+        
+    </script>
+</body>
+</html>

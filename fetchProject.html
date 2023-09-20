@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand">Navbar</a>
+                        <form class="d-flex" id="form">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                                id="formData">
+                            <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <hr>
+        <div class="row" id="card">
+
+        </div>
+    </div>
+
+    <script>
+        const url = "https://jsonplaceholder.typicode.com/users"
+        let golbalData = []
+        let str = ""
+        let card = document.getElementById('card')
+        let form = document.getElementById('form')
+        let formData = document.getElementById('formData')
+
+        async function fetchData() {
+            let response = await fetch(url);
+            let data = await response.json();
+            golbalData = data
+            print(golbalData)
+        }
+
+        function print(arr) {
+            str = ""
+            arr.map((data) => {
+
+                str = str + `<div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${data.username}</h5>
+                        <p class="card-text">${data.email}
+                        </p>
+                    </div>
+                </div>
+            </div>`
+            })
+            card.innerHTML = str;
+            // card.innerText = str
+        }
+
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            let x = golbalData.filter((data) => {
+                 return data.email.includes(formData.value)
+                // return data.username == formData.value
+
+                if(data.email.includes(formData.value) || data.username.includes(formData.value)){
+                    return data;
+                }
+            })
+            print(x)
+        })
+
+        fetchData()
+    </script>
+</body>
+
+</html>

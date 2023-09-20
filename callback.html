@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    
+    </style>
+
+<script>
+// function add (call,n1,n2){
+//     call(n1,n2)
+// }
+// function print(a,b)
+// {
+//     console.log(`add ${a+b}`);
+// }
+// add (print,5,6)
+//
+//callBack in a synchronous  behaviour
+
+// function print(name,callBack){
+//     console.log("before calling callback");
+//     callBack(name);   //if it is taking 2min it will be blocked so we are using asnyc  
+//     console.log("after calling callBack");
+// }
+// function A(name)
+// {
+//     console.log(`my name is ${name}`);
+// }
+// print("Chaya",A)
+
+
+
+//call back in a asnyc behaviour
+
+// function print(name,callBack){
+//     console.log("before calling callback");
+//     setTimeout(()=>{
+//     callBack(name); },1000) //if it is taking 2min it will be blocked so we are using asnyc setTimeout 
+ 
+//     console.log("after calling callBack");
+// }
+// function A(name)
+// {
+//     console.log(`my name is ${name}`);
+// }
+// print("Chaya",A)
+
+
+//asnychronous function behaviour
+ 
+// function print(name,callBack){
+//     console.log("before calling callback");
+//     setTimeout(()=>{
+//     callBack(name); },1000) //if it is taking 2min it will be blocked so we are using asnyc setTimeout 
+ 
+//     console.log("after calling callBack");
+// }
+// function A(name)
+// {
+//     console.log(`my name is ${name}`);
+// }
+// print("Chaya",A)
+
+//map used as callback
+
+// let x=[3,2,4,2,6,7]
+// function Return(data){
+//     return data*2;
+// }
+//  data=x.map(Return)
+//  console.log(data);
+ 
+//callBack Hell
+
+console.log("callBack hell");
+setTimeout(()=>{
+    console.log("iam container");
+    setTimeout(()=>{
+        console.log("iam parent");
+        setTimeout(()=>{
+            console.log("iam child");
+            setTimeout(()=>{
+                console.log("iam a last one setTimeOut");
+            },3000)
+        },2000)
+    },1000)
+},4000)
+
+
+</script>
+</body>
+</html>

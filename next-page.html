@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let container=document.getElementById("container")
+        let objData=JSON.parse(localStorage.getItem("objData"))
+        console.log(objData)
+         
+        let name=document.createTextNode(objData.name)
+        let email=document.createTextNode(objData.email)
+        let pass=document.createTextNode(objData.pass)
+        let gender=document.createTextNode(objData.gender)
+
+
+                  .appendChild(name)
+
+
+
+        // let name=localStorage.getItem("name",value);
+        // let email=localStorage.getItem("email",value);
+        // let pass=localStorage.getItem("pass",value);
+        
+    </script>
+</body>
+</html>

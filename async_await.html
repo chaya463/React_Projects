@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function add(){
+        //     return new Promise((res,rej)=>{
+        //         if(true){
+
+        //             res("hii hello");
+        //         }
+        //     })
+        // }
+        //     // add().then((data)=>{
+        //     //     console.log(data);
+        //     // }).catch((err)=>{
+        //     //     console.log(err);
+        //     // })
+
+        //     //async and await
+        // async function x(){
+        //     console.log("hii started");
+        //     let y=await add()     //it will force to wait the code untill it is executed so remaining will work
+        //     console.log(y);
+        //     console.log("iam end");
+        // }
+        // x()
+
+
+
+
+    //    // function decalration 
+    //       async function a(){
+
+
+    //       }
+    //       a()
+
+    //       //function expression 
+    //       let B =async function(){
+
+    //       }
+
+
+    //       //arrow function
+
+    //       let C= async ()=>{
+
+    //       }
+
+
+
+
+
+//     async function data()
+//     {
+//         let x="hello world"
+//         return x
+//     }
+// //1st way 
+// data().then((data)=>{
+//     console.log(data);
+// })
+
+
+// // 2nd way
+// async function print()
+// {
+//     let y=await data();
+//     console.log(y);
+// }
+// print()
+
+   let getData =async()=>
+   {
+    let y=await "hello world"
+    console.log(y);
+   }
+console.log("start");
+getData();
+console.log("end");
+
+
+// 1st method
+function abc(){
+    let x=7;
+    return new Promise((res,rej)=>{
+        if(x>5){
+            res("its res")
+        }
+        else{
+            rej("iam rej")
+        }
+    })
+}
+
+// 2nd method
+abc().then((data)=>{
+    console.log(data);
+}).catch((err)=>{
+    console.log(err);
+})
+
+
+async function A(){
+    let x=await abc();
+    console.log("iam async function");
+}
+A()
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200&family=Roboto&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin: 40px 0 60px 0;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        #search-input {
+            width: 60%;
+            max-width: 400px;
+            padding: 10px, 20px;
+            border: none;
+            box-shadow: 0 0 6px rgba(0, 0, 0.2);
+            border-radius: 2px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #search {
+            padding: 10px, 20px;
+            background-color: #138065;
+            color: white;
+            border: none;
+            font-size: 18px;
+            box-shadow: 0 0 6px rgba(0, 0, 0.2);
+            cursor: pointer;
+            border-radius: 2px;
+            margin-left: 10px;
+        }
+
+        .search-results {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .search-result {
+            margin-bottom: 60px;
+            width: 30%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 6px rgba(0, 0, 0.2);
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .search-result img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .search-result:hover img {
+            opacity: 0.8;
+        }
+
+        .search-result a {
+            font-size: 20px;
+            text-decoration: none;
+            color: gray;
+            padding: 10px;
+            text-transform: capitalize;
+            display: block;
+        }
+
+        #show-more-btn {
+            padding: 10px 20px;
+            text-align: center;
+            justify-content: center;
+            background-color: blue;
+            font-size: 18px;
+            display: block;
+            margin: 30px auto;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            border: none;
+            display: none;
+        }
+
+
+        @media screen and (max-width:700px) {
+            .search-results {
+                padding: 20px;
+            }
+
+            .search-result {
+                width: 45%;
+            }
+        }
+
+        @media screen and (max-width:200px) {
+            .search-result {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image Based Search</h1>
+    <form action="">
+        <input type="text" id="search-input" placeholder="Search for images">
+        <button id="search">Search</button>
+    </form>
+    <div class="search-results">
+        <div class="search-result">
+            <img src="https://media.samyakk.com/catalog/product/s/l/sl1040.jpg" alt="Bride_dress">
+            <a href="https://www.bing.com/search?pglt=41&q=bride+dress&cvid=65f01ba673df4bf8bc40ffdaa8dbc745&aqs=edge.0.0l9.7356j0j1&FORM=ANNTA1&PC=LCTS"
+                target="_blank">Bride_dress</a>
+        </div>
+        <div class="search-result">
+            <img src="https://media.samyakk.com/catalog/product/s/g/sg3637.jpg" alt="Bride_dress">
+            <a href="https://www.samyakk.com/old-rose-pink-sequins-embroidered-silk-designer-salwar-sg3637?CMP=utm_source%3Dbing&utm_medium=cpc&utm_campaign=Shopping_India&msclkid=32c5b2be3a911451acd6d61806db7914"
+                target="_blank">Bride_dress</a>
+        </div>
+        <div class="search-result">
+            <img src="https://media.samyakk.com/catalog/product/h/n/hn3948.jpg" alt="Bride_dress">
+            <a href="https://www.samyakk.com/dark-wine-sequins-embroidered-georgette-designer-salwar-hn3948?CMP=utm_source%3Dbing&utm_medium=cpc&utm_campaign=Shopping_India&msclkid=379b5137aab2146489cd359196f8ecae"
+                target="_blank">Bride_dress</a>
+        </div>
+    </div>
+    <button id="show-more-btn">Show more</button>
+
+    <script>
+        const accessKey = "Pd3P80uM8Y2GMAi4Louwwcv_6GMiwx_lO3j_eMOHBVU"
+        const form = document.querySelector("form")
+        const input = document.getElementById("search-input")
+        const searchResults = document.querySelector(".search-results")
+        const Showmore = document.getElementById(".show-more-btn")
+        let inputData = ""
+        let page = 1;
+
+        async function searchImages() {
+            inputData = input.value;
+            const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}`
+            const response = await fetch(url)
+            const data = await response.json()
+            const result = data.res;
+            if (page === 1) {
+                searchResults.innerHTML = "";
+            }
+           result.map((result) => {
+                const imageWrapper = document.createElement('div')
+                imageWrapper.classList.add("search-results")
+                const image = document.createElement("img");
+                image.src = result.urls.small;
+                image.alt = result.alt_description;
+                let imageLink = document.createElement('a')
+                imageLink.href = result.links
+                imageLink.target = "_blank"
+                imageLink.textContent = result.alt_description
+                imageWrapper.appendChild(image)
+                imageWrapper.appendChild(imageLink)
+                searchResults.appendChild(imageWrapper)
+            })
+            page++;
+            if (page > 1) {
+                Showmore.style.display = "block"
+            }
+
+        }
+        form.addEventListener("submit", (e) => {
+            e.preventDefault()
+            page = 1;
+            searchImages()
+        });
+        // Showmore.addEventListener("click", () => {
+        //     searchImages();
+        // });
+
+    </script>
+</body>
+
+</html>
